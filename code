@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    int number;
+    cout << "Введите число: ";
+    cin >> number;
+    if (number == 0)
+    {
+        cout << "0";
+        return 0;
+    }
+    int tmp = number;
+    int counter = 0;
+    while (tmp !=0)
+    {
+        counter++;
+        tmp = tmp / 10;
+    }
+    int* num = new int[counter];
+    int i = 0;
+    while (number != 0)
+    {
+        num[i] = number % 10;
+        if (num[i] < 0) num[i] *= -1;
+        number /= 10;
+        i++;
+    }
+    i = 1;
+    while (counter > 0)
+    {
+        cout << i << " число: " << num[counter-1] << endl;
+        i++;
+        counter--;
+    }
+    return 0;
+}
+
